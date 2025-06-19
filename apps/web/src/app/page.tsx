@@ -17,10 +17,12 @@ export default function Home() {
       {session ? (
         <div>
           <p>Welcome, {session.user?.name}</p>
-          <button onClick={() => signOut()}>Sign Out</button>
+          <Button onClick={() => signOut()} variant="secondary">
+            Sign Out
+          </Button>
         </div>
       ) : (
-        <button onClick={() => signIn('google')}>Sign In with Google</button>
+        <Button onClick={() => signIn('google')}>Sign In with Google</Button>
       )}
       <ul>
         {users?.map((user) => (
