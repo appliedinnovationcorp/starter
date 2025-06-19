@@ -23,9 +23,24 @@ importers:
 
   apps/web:
     dependencies:
+      '@monorepo/api':
+        specifier: workspace:*
+        version: link:../../packages/api
       '@monorepo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@tanstack/react-query':
+        specifier: ^5.80.10
+        version: 5.80.10(react@19.1.0)
+      '@trpc/client':
+        specifier: ^11.4.2
+        version: 11.4.2(@trpc/server@11.4.2(typescript@5.8.3))(typescript@5.8.3)
+      '@trpc/react-query':
+        specifier: ^11.4.2
+        version: 11.4.2(@tanstack/react-query@5.80.10(react@19.1.0))(@trpc/client@11.4.2(@trpc/server@11.4.2(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.4.2(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)
+      '@trpc/server':
+        specifier: ^11.4.2
+        version: 11.4.2(typescript@5.8.3)
       next:
         specifier: 15.3.4
         version: 15.3.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -35,6 +50,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      zod:
+        specifier: ^3.25.67
+        version: 3.25.67
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -62,6 +80,28 @@ importers:
         version: 4.1.10
       typescript:
         specifier: ^5
+        version: 5.8.3
+
+  packages/api:
+    dependencies:
+      '@trpc/server':
+        specifier: ^11.0.0
+        version: 11.4.2(typescript@5.8.3)
+      zod:
+        specifier: ^3.23.8
+        version: 3.25.67
+    devDependencies:
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^8.5.0
+        version: 8.34.1(@typescript-eslint/parser@8.34.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)
+      '@typescript-eslint/parser':
+        specifier: ^8.5.0
+        version: 8.34.1(eslint@8.57.1)(typescript@5.8.3)
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.1
+      typescript:
+        specifier: ^5.5.4
         version: 5.8.3
 
   packages/ui:
@@ -487,6 +527,35 @@ packages:
 
   '@tailwindcss/postcss@4.1.10':
     resolution: {integrity: sha512-B+7r7ABZbkXJwpvt2VMnS6ujcDoR2OOcFaqrLIo1xbcdxje4Vf+VgJdBzNNbrAjBj/rLZ66/tlQ1knIGNLKOBQ==}
+
+  '@tanstack/query-core@5.80.10':
+    resolution: {integrity: sha512-mUNQOtzxkjL6jLbyChZoSBP6A5gQDVRUiPvW+/zw/9ftOAz+H754zCj3D8PwnzPKyHzGkQ9JbH48ukhym9LK1Q==}
+
+  '@tanstack/react-query@5.80.10':
+    resolution: {integrity: sha512-6zM098J8sLy9oU60XAdzUlAH4wVzoMVsWUWiiE/Iz4fd67PplxeyL4sw/MPcVJJVhbwGGXCsHn9GrQt2mlAzig==}
+    peerDependencies:
+      react: ^18 || ^19
+
+  '@trpc/client@11.4.2':
+    resolution: {integrity: sha512-Eep1rorAsATs9bxgaXf+BV34CRs4lAKQmwumUL4CNdNDkJItyfuWUr3xWx0np1w3EzUDVA0YDMK93iKDBBA0KQ==}
+    peerDependencies:
+      '@trpc/server': 11.4.2
+      typescript: '>=5.7.2'
+
+  '@trpc/react-query@11.4.2':
+    resolution: {integrity: sha512-tm2y9asG3PmdyZqgE92hQEauxls/2ZlEMpA6y/hLizdhjLiKCEtYCQ38pU+n4vUYczffZ90aTaSFm7zf+tnz/g==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.80.3
+      '@trpc/client': 11.4.2
+      '@trpc/server': 11.4.2
+      react: '>=18.2.0'
+      react-dom: '>=18.2.0'
+      typescript: '>=5.7.2'
+
+  '@trpc/server@11.4.2':
+    resolution: {integrity: sha512-THyq/V5bSFDHeWEAk6LqHF0IVTGk6voGwWsFEipzRRKOWWMIZINCsKZ4cISG6kWO2X9jBfMWv/S2o9hnC0zQ0w==}
+    peerDependencies:
+      typescript: '>=5.7.2'
 
   '@tybys/wasm-util@0.9.0':
     resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
@@ -1976,6 +2045,9 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
+  zod@3.25.67:
+    resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -2327,6 +2399,31 @@ snapshots:
       '@tailwindcss/oxide': 4.1.10
       postcss: 8.5.6
       tailwindcss: 4.1.10
+
+  '@tanstack/query-core@5.80.10': {}
+
+  '@tanstack/react-query@5.80.10(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-core': 5.80.10
+      react: 19.1.0
+
+  '@trpc/client@11.4.2(@trpc/server@11.4.2(typescript@5.8.3))(typescript@5.8.3)':
+    dependencies:
+      '@trpc/server': 11.4.2(typescript@5.8.3)
+      typescript: 5.8.3
+
+  '@trpc/react-query@11.4.2(@tanstack/react-query@5.80.10(react@19.1.0))(@trpc/client@11.4.2(@trpc/server@11.4.2(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.4.2(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)':
+    dependencies:
+      '@tanstack/react-query': 5.80.10(react@19.1.0)
+      '@trpc/client': 11.4.2(@trpc/server@11.4.2(typescript@5.8.3))(typescript@5.8.3)
+      '@trpc/server': 11.4.2(typescript@5.8.3)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+      typescript: 5.8.3
+
+  '@trpc/server@11.4.2(typescript@5.8.3)':
+    dependencies:
+      typescript: 5.8.3
 
   '@tybys/wasm-util@0.9.0':
     dependencies:
@@ -4185,3 +4282,5 @@ snapshots:
   yallist@5.0.0: {}
 
   yocto-queue@0.1.0: {}
+
+  zod@3.25.67: {}
