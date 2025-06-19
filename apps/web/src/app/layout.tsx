@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { TRPCProvider } from '@/components/TRPCProvider';
+import { AuthProvider } from '@/components/SessionProvider';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,7 +25,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TRPCProvider>{children}</TRPCProvider>
+        <AuthProvider>
+          <TRPCProvider>
+            {children}
+          </TRPCProvider>
+        </AuthProvider>
       </body>
     </html>
   );
